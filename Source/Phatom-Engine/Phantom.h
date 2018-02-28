@@ -16,17 +16,20 @@
 #include "SFML/Graphics/View.hpp"
 
 #include "SystemRequirements.h"
+#include "SceneGraph.h"
 
 class Phantom
 {
 	public:
-		static void InitGraphics(LPCTSTR gameTitle);
+		static void InitGraphics(LPCTSTR gameTitle, float width, float height);
 
 		static void Start(LPCTSTR gameTitle);
 		static bool Initialize(LPCTSTR gameTitle);
 
+		static void Delay(float seconds);
+
 		enum GameState {
-			Uninitialized, Initialized, ShowingSplash, Paused,
+			Uninitialized, CheckingResources, Initialized, ShowingSplash, Paused,
 			ShowingMenu, Playing, Exiting
 		};
 

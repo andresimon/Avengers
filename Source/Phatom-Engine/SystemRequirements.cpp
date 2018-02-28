@@ -23,19 +23,42 @@ bool SystemRequirements::CheckStorage(const DWORDLONG diskSpaceNeeded)
 
 	_int64 availInMB = (diskfree.avail_clusters / BYTE_TO_MBBYTE)  * diskfree.sectors_per_cluster * diskfree.bytes_per_sector;
 
-	std::cout.imbue(std::locale(std::locale(), new myseps));
+	//std::cout.imbue(std::locale(std::locale(), new myseps));
 
-	std::cout << "Checking required space : " << (diskSpaceNeeded / BYTE_TO_MBBYTE) << " MB." << std::endl;
+	//std::cout << "Checking required space : " << (diskSpaceNeeded / BYTE_TO_MBBYTE) << " MB." << std::endl;
 	char disk = (char)(65 + drive - 1); // 65 is 'A'
-	std::cout << "Free space in disk " << disk << ": " << availInMB << " MB." << std::endl;
+	//std::cout << "Free space in disk " << disk << ": " << availInMB << " MB." << std::endl;
+
+	std::stringstream textSS;
+	textSS.imbue(std::locale(std::locale(), new myseps));
+	
+	//std::string textString;
+
+	textSS << "Checking required space : " << (diskSpaceNeeded / BYTE_TO_MBBYTE) << " MB." << std::endl;
+	textSS << "Free space in disk " << disk << ": " << availInMB << " MB." << std::endl;
 
 	if (diskfree.avail_clusters < neededClusters)
 	{
 		// if you get here you don’t have enough disk space! 
-		std::cout << "CheckStorage Failure : Not enough physical storage." << std::endl;
+		//std::cout << "CheckStorage Failure : Not enough physical storage." << std::endl;
+		textSS << "CheckStorage Failure : Not enough physical storage." << std::endl;
 		enoughSpace = false;
 	}
-	std::cout << std::endl;
+	//std::cout << std::endl;
+	textSS << std::endl;
+
+	if (!enoughSpace)
+	{
+		sf::Font font;
+		font.loadFromFile("../../../Assets/fonts/American Captain.ttf");
+
+		sf::Text text("", font);
+		text.setString(textSS.str());
+		text.setCharacterSize(15);
+		text.setPosition(0, 0);
+		Phantom::_mainWindow.draw(text);
+		Phantom::_mainWindow.display();
+	}
 
 	return enoughSpace;
 }
@@ -50,6 +73,10 @@ bool SystemRequirements::CheckMemory(const DWORDLONG physicalRAMNeeded, const DW
 
 	GlobalMemoryStatusEx(&statex);
 
+	std::stringstream textSS;
+	textSS.imbue(std::locale(std::locale(), new myseps));
+
+	/*
 	std::cout << "There is  " << statex.dwMemoryLoad << " percent of memory in use." << std::endl;
 	std::cout << "There are " << (statex.ullTotalPhys / BYTE_TO_KBBYTE) << " total KB of physical memory." << std::endl;
 	std::cout << "There are " << (statex.ullAvailPhys / BYTE_TO_KBBYTE) << " free  KB of physical memory." << std::endl;
@@ -59,12 +86,25 @@ bool SystemRequirements::CheckMemory(const DWORDLONG physicalRAMNeeded, const DW
 	std::cout << "There are " << (statex.ullAvailVirtual / BYTE_TO_KBBYTE) << " free  KB of virtual memory." << std::endl;
 
 	// Show the amount of extended memory available.
-	std::cout << "There are " << (statex.ullAvailExtendedVirtual / BYTE_TO_KBBYTE) << " free  KB of extended memory." << std::endl;
+	//std::cout << "There are " << (statex.ullAvailExtendedVirtual / BYTE_TO_KBBYTE) << " free  KB of extended memory." << std::endl;
+	*/
+
+	textSS << "There is  " << statex.dwMemoryLoad << " percent of memory in use." << std::endl;
+	textSS << "There are " << (statex.ullTotalPhys / BYTE_TO_KBBYTE) << " total KB of physical memory." << std::endl;
+	textSS << "There are " << (statex.ullAvailPhys / BYTE_TO_KBBYTE) << " free  KB of physical memory." << std::endl;
+	textSS << "There are " << (statex.ullTotalPageFile / BYTE_TO_KBBYTE) << " total KB of paging file." << std::endl;
+	textSS << "There are " << (statex.ullAvailPageFile / BYTE_TO_KBBYTE) << " free  KB of paging file." << std::endl;
+	textSS << "There are " << (statex.ullTotalVirtual / BYTE_TO_KBBYTE) << " total KB of virtual memory." << std::endl;
+	textSS << "There are " << (statex.ullAvailVirtual / BYTE_TO_KBBYTE) << " free  KB of virtual memory." << std::endl;
+	
+	// Show the amount of extended memory available.
+	textSS << "There are " << (statex.ullAvailExtendedVirtual / BYTE_TO_KBBYTE) << " free  KB of extended memory." << std::endl;
 
 	if (statex.ullTotalPhys < physicalRAMNeeded)
 	{
 		// you don’t have enough physical memory. Tell the player to go get a real computer and give this one to his mother.
-		std::cout << "CheckMemory Failure : Not enough physical memory." << std::endl;
+		//std::cout << "CheckMemory Failure : Not enough physical memory." << std::endl;
+		textSS << "CheckMemory Failure : Not enough physical memory." << std::endl;
 		enoughMem = false;
 	}
 
@@ -72,11 +112,25 @@ bool SystemRequirements::CheckMemory(const DWORDLONG physicalRAMNeeded, const DW
 	if (statex.ullAvailVirtual < virtualRAMNeeded)
 	{
 		// you don’t have enough virtual memory available. Tell the player to shut down the copy of Visual Studio running in the background.
-		std::cout << "CheckMemory Failure : Not enough virtual memory." << std::endl;
+		//std::cout << "CheckMemory Failure : Not enough virtual memory." << std::endl;
+		textSS << "CheckMemory Failure : Not enough virtual memory." << std::endl;
 		enoughMem = false;
 	}
+	//std::cout << std::endl;
+	textSS << std::endl;
 
-	std::cout << std::endl;
+	if (!enoughMem)
+	{
+		sf::Font font;
+		font.loadFromFile("../../../Assets/fonts/American Captain.ttf");
+
+		sf::Text text("", font);
+		text.setString(textSS.str());
+		text.setCharacterSize(15);
+		text.setPosition(0, 0);
+		Phantom::_mainWindow.draw(text);
+		Phantom::_mainWindow.display();
+	}
 
 	return enoughMem;
 }
@@ -111,6 +165,10 @@ void SystemRequirements::CpuArchitecture()
 
 bool SystemRequirements::CheckResources(LPCTSTR gameTitle)
 {
+	Phantom::_gameState = Phantom::GameState::CheckingResources;
+
+	std::cout << Phantom::_gameState << std::endl;
+
 	bool passed = true;
 
 	// Singleton
@@ -120,17 +178,38 @@ bool SystemRequirements::CheckResources(LPCTSTR gameTitle)
 
 	// Disk space
 	if (passed)
-		passed = SystemRequirements::CheckStorage(536870912000); // approx. 500 GB
+		passed = SystemRequirements::CheckStorage(10737418240); // approx. 10 GB
+	//passed = SystemRequirements::CheckStorage(536870912000); // approx. 500 GB
 
 	if (passed)
-		passed = SystemRequirements::CheckMemory(25000000000, 2500000000);
+		passed = SystemRequirements::CheckMemory(2147483648, 524288);
+	//passed = SystemRequirements::CheckMemory(25000000000, 2500000000);
 
 	SystemRequirements::CpuArchitecture();
+
+	if (!passed)
+		Phantom::_gameState = Phantom::GameState::Uninitialized;
+	else
+		Phantom::_gameState = Phantom::GameState::Initialized;
+
+	while (Phantom::_mainWindow.isOpen() && Phantom::_gameState != Phantom::GameState::CheckingResources)
+	{
+		sf::Event event;
+		while (Phantom::_mainWindow.pollEvent(event))
+		{
+			if (event.type == sf::Event::EventType::KeyPressed
+				|| event.type == sf::Event::EventType::MouseButtonPressed
+				|| event.type == sf::Event::EventType::Closed)
+			{
+				Phantom::_mainWindow.close();
+			}
+		}
+	}
 
 	CloseHandle(handle);
 	handle = NULL;
 
-	char ch = _getch();
+	//char ch = _getch();
 
 	return passed;
 }

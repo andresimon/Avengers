@@ -20,19 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Phatom-Engine\GameObject.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Phantom.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SystemRequirements.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Phatom-Engine\GameObject.h" />
+    <ClInclude Include="..\..\Phatom-Engine\Matrices.h" />
     <ClInclude Include="..\..\Phatom-Engine\Phantom.h" />
+    <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h" />
     <ClInclude Include="..\..\Phatom-Engine\SystemRequirements.h" />
+    <ClInclude Include="..\..\Phatom-Engine\Vectors.h" />
     <ClInclude Include="..\SplashScreen.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\Assets\images\Avengers_Logo.jpg" />
+    <Image Include="..\..\..\Assets\images\Avengers_Logo_00.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -87,7 +92,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\..\..\Game</OutDir>
-    <IntDir>..\..\..\Temp</IntDir>
+    <IntDir>..\..\..\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\..\..\Game</OutDir>

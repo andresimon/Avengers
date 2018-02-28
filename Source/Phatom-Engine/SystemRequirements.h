@@ -8,8 +8,17 @@
 //#include <locale>  
 //#include <iomanip>  
 #include <intrin.h>
+#include <string>
+#include <sstream>
 
 #include <conio.h>	// _getch()
+
+#include "SFML/Window.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/Graphics/RenderWindow.hpp"
+#include "SFML/Graphics/View.hpp"
+
+#include "Phantom.h"
 
 // Use to convert bytes to KB
 #define BYTE_TO_KBBYTE 1024

@@ -39,6 +39,12 @@
     <ClCompile Include="..\SplashScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Phatom-Engine\Phantom.h">
@@ -53,9 +59,18 @@
     <ClInclude Include="..\SplashScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\Vectors.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\Matrices.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\Assets\images\Avengers_Logo.jpg">
+    <Image Include="..\..\..\Assets\images\Avengers_Logo_00.png">
       <Filter>Resource Files\images</Filter>
     </Image>
   </ItemGroup>

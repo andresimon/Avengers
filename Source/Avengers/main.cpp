@@ -5,44 +5,21 @@
 #include "SplashScreen.h"
 
 static const LPCTSTR gameTitle = "Avengers";
+static const float screenWidth = 1024.0f;
+static const float screenHeight = 768.0f;
 
 int main(int argc, _TCHAR* argv[])
 {
 	SplashScreen sc;
 
-	Phantom::InitGraphics(gameTitle);
+	Phantom::InitGraphics(gameTitle, screenWidth, screenHeight);
 
 	sc.Show(Phantom::_mainWindow);
 
-	//if ( ! Phantom::Initialize(gameTitle) )
-	//	return -1;
+	if ( ! Phantom::Initialize(gameTitle) )
+		return -1;
 
 	Phantom::Start(gameTitle);
 	return 0;
 }
 
-//#include <SFML/Graphics.hpp>
-/*
-int main()
-{
-sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-sf::CircleShape shape(100.f);
-shape.setFillColor(sf::Color::Green);
-
-while (window.isOpen())
-{
-sf::Event event;
-while (window.pollEvent(event))
-{
-if (event.type == sf::Event::Closed)
-window.close();
-}
-
-window.clear();
-window.draw(shape);
-window.display();
-}
-
-return 0;
-}
-*/
