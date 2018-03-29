@@ -192,24 +192,8 @@ bool SystemRequirements::CheckResources(LPCTSTR gameTitle)
 	else
 		Phantom::_gameState = Phantom::GameState::Initialized;
 
-	while (Phantom::_mainWindow.isOpen() && Phantom::_gameState != Phantom::GameState::CheckingResources)
-	{
-		sf::Event event;
-		while (Phantom::_mainWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::EventType::KeyPressed
-				|| event.type == sf::Event::EventType::MouseButtonPressed
-				|| event.type == sf::Event::EventType::Closed)
-			{
-				Phantom::_mainWindow.close();
-			}
-		}
-	}
-
 	CloseHandle(handle);
 	handle = NULL;
-
-	//char ch = _getch();
 
 	return passed;
 }

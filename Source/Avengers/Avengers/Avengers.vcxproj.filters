@@ -36,13 +36,55 @@
     <ClCompile Include="..\..\Phatom-Engine\GameObject.cpp">
       <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\SplashScreen.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\MenuManager.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\Animation.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\FadeAnimation.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\FileManager.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\GameScreen.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\InputManager.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp">
-      <Filter>Header Files\Phantom-Engine</Filter>
+      <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp">
+    <ClCompile Include="..\..\Phatom-Engine\ScreenManager.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SplashScreen.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\SplashScreen2.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\TitleScreen.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\LevelScreen.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\GameObjectManager.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\BaseComponent.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\BaseMessage.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\SpriteRender.cpp">
       <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,9 +98,6 @@
     <ClInclude Include="..\..\Phatom-Engine\GameObject.h">
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
-    <ClInclude Include="..\SplashScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Phatom-Engine\Vectors.h">
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
@@ -66,6 +105,51 @@
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\ScreenManager.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\GameScreen.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\SplashScreen2.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\TitleScreen.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\InputManager.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\Animation.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\FadeAnimation.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\FileManager.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\MenuManager.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SplashScreen.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\LevelScreen.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\GameObjectManager.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\BaseComponent.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\BaseMessage.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\SpriteRender.h">
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
   </ItemGroup>

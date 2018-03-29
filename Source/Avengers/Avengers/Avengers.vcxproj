@@ -19,20 +19,48 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Phatom-Engine\Animation.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\BaseComponent.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\BaseMessage.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\FadeAnimation.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\FileManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\GameObject.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\GameObjectManager.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\GameScreen.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\InputManager.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\LevelScreen.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\MenuManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Phantom.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\ScreenManager.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\SplashScreen2.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\SpriteRender.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SystemRequirements.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\TitleScreen.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Phatom-Engine\Animation.h" />
+    <ClInclude Include="..\..\Phatom-Engine\BaseComponent.h" />
+    <ClInclude Include="..\..\Phatom-Engine\BaseMessage.h" />
+    <ClInclude Include="..\..\Phatom-Engine\FadeAnimation.h" />
+    <ClInclude Include="..\..\Phatom-Engine\FileManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\GameObject.h" />
+    <ClInclude Include="..\..\Phatom-Engine\GameObjectManager.h" />
+    <ClInclude Include="..\..\Phatom-Engine\GameScreen.h" />
+    <ClInclude Include="..\..\Phatom-Engine\InputManager.h" />
+    <ClInclude Include="..\..\Phatom-Engine\LevelScreen.h" />
     <ClInclude Include="..\..\Phatom-Engine\Matrices.h" />
+    <ClInclude Include="..\..\Phatom-Engine\MenuManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\Phantom.h" />
     <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h" />
+    <ClInclude Include="..\..\Phatom-Engine\ScreenManager.h" />
+    <ClInclude Include="..\..\Phatom-Engine\SplashScreen2.h" />
+    <ClInclude Include="..\..\Phatom-Engine\SpriteRender.h" />
     <ClInclude Include="..\..\Phatom-Engine\SystemRequirements.h" />
+    <ClInclude Include="..\..\Phatom-Engine\TitleScreen.h" />
     <ClInclude Include="..\..\Phatom-Engine\Vectors.h" />
     <ClInclude Include="..\SplashScreen.h" />
   </ItemGroup>
@@ -95,8 +123,8 @@
     <IntDir>..\..\..\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\..\Game</OutDir>
-    <IntDir>..\..\..\Temp</IntDir>
+    <OutDir>..\..\..\Game\</OutDir>
+    <IntDir>..\..\..\Temp\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

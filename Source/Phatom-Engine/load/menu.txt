@@ -1,0 +1,12 @@
+start=[Title]
+
+load=[position][axis][animation][align]
+[100,100][2][fade][none]
+
+load=[item]
+[new game]
+[options]
+[credits]
+[exit]
+
+end=[Title]

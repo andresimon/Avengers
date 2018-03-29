@@ -1,24 +1,46 @@
 #include "Phantom.h"
 
-bool Phantom::Initialize(LPCTSTR gameTitle)
+Phantom::GameState Phantom::_gameState;
+GameObjectManager Phantom::_gameObjectManager;
+sf::Clock Phantom::clock;
+sf::RenderWindow Phantom::_mainWindow;
+
+void Phantom::Initialize(LPCTSTR gameTitle, float screenWidth, float screenHeight)
 {
-	return SystemRequirements::CheckResources(gameTitle);
+	Phantom::InitGraphics(gameTitle, screenWidth, screenHeight);
+	
+	ScreenManager::GetInstance().Initialize();
+	ScreenManager::GetInstance().LoadContent();
+
+	if ( !SystemRequirements::CheckResources(gameTitle) )
+		exit;
+
+	_gameState = Initialized;
+
+	return;
 }
 
-void Phantom::Start(LPCTSTR gameTitle)
+void Phantom::Start(LPCTSTR gameTitle, float ScreenWidth, float ScreenHeight)
 {
-	if (_gameState != Uninitialized)
+	if (_gameState != Initialized)
 		return;
 
-	//_mainWindow.create(sf::VideoMode(1024, 768, 32), gameTitle);
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	
+	sf::RectangleShape fade(sf::Vector2f(ScreenWidth, ScreenHeight));
+	fade.setFillColor(sf::Color(0, 0, 0, 255));
+
+	ScreenManager::GetInstance().Initialize();
+	ScreenManager::GetInstance().LoadContent();
 
 	_gameState = Phantom::Playing;
 
-	while (!IsExiting())
+	while (_gameState != Phantom::Exiting)
 	{
-		GameLoop();
+		GameLoop(ScreenWidth, ScreenHeight);
 	}
 	_mainWindow.close();
+
 }
 
 void Phantom::InitGraphics(LPCTSTR gameTitle, float width, float height)
@@ -31,22 +53,55 @@ void Phantom::InitGraphics(LPCTSTR gameTitle, float width, float height)
 
 bool Phantom::IsExiting()
 {
-	return false;
+	return false;// isExiting;
 }
 
-void Phantom::GameLoop() 
+void Phantom::GameLoop(float ScreenWidth, float ScreenHeight)
 {
-	SceneGraph* level1 = new SceneGraph();
+	//SceneGraph* level1 = new SceneGraph();
 
-	GameObject* player = new GameObject();
+	//GameObject* player = new GameObject();
 
-	level1->AddObject(player);
+	//level1->AddObject(player);
+
+	sf::Event event;
+
+	while (_mainWindow.pollEvent(event))
+	{
+		if (event.type == sf::Event::EventType::Closed )
+	//		(event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+		{
+			//Window.close();
+			_gameState = Phantom::Exiting;
+			break;
+		}
+
+		ScreenManager::GetInstance().UpdateEvent(event);
+	}
+
+	double deltaTime = clock.restart().asSeconds();
+
+	_mainWindow.clear();
+
+	// update all systems
+	_gameObjectManager.Update(deltaTime); // change to tick later
+
+								  // late update all systems
+	_gameObjectManager.LateUpdate(deltaTime); // change to tick later
+
+	ScreenManager::GetInstance().Update(deltaTime);
+
+	sf::RectangleShape fade(sf::Vector2f(ScreenWidth, ScreenHeight));
+	fade.setFillColor(sf::Color(0, 0, 0, 255 * ScreenManager::GetInstance().GetAlpha()));
+
+	ScreenManager::GetInstance().Draw(_mainWindow);
+	_mainWindow.draw(fade);
+
+	_mainWindow.display();
 
 }
 
-Phantom::GameState Phantom::_gameState;
 
-sf::RenderWindow Phantom::_mainWindow;
 
 void Phantom::Delay(float seconds)
 {
@@ -65,3 +120,43 @@ void Phantom::Delay(float seconds)
 	}
 }
 
+//////////////////////
+/*
+
+void Clarity::GameLoop() {
+	// update all systems
+	_gameObjectManager.Update(0); // change to tick later
+
+								  // late update all systems
+	_gameObjectManager.LateUpdate(0); // change to tick later
+}
+
+void Clarity::LevelLoaded() {
+	_gameObjectManager.Awake();
+	// awake other systems
+
+	_gameObjectManager.Start();
+	// start other systems
+}
+
+void Clarity::Start(void)
+{
+	if (_gameState != Initialized)
+		return;
+
+	std::cout << "Initialized";
+	//_mainWindow.Create(sf::VideoMode(1024,768,32),"GameName");
+	_gameState = Clarity::Playing;
+
+	while (!IsExiting())
+	{
+		GameLoop();
+	}
+
+	//_mainWindow.Close();
+}
+
+bool Clarity::IsExiting() {
+	return true;
+}
+*/
