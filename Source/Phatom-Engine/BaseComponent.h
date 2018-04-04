@@ -9,7 +9,13 @@
 //
 
 //#include <stdio.h>
+#include <memory>
+
 #include "BaseMessage.h"
+
+#include "ComponentTypes.h"
+
+class GameObject;
 
 class BaseComponent 
 {
@@ -18,5 +24,14 @@ class BaseComponent
 		virtual void Start() {}
 		virtual void Update() {}
 		virtual void LateUpdate() {}
-		virtual bool SendMessage(BaseMessage* msg) { return false; }
+
+		inline void setParent(GameObject* parent) { this->m_Parent = parent; }
+
+	//	inline void SetParent(GameObject* parent) { m_Parent = parent; }
+	
+	protected:
+		int parentID;
+		GameObject* m_Parent;
+
+		
 };

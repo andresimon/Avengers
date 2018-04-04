@@ -30,6 +30,7 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
 	Phantom::Delay(3.0f);
 
 	sf::Event event;
+	/*
 	while (Phantom::_mainWindow.isOpen() && Phantom::_gameState == Phantom::GameState::CheckingResources)
 	{
 		while (Phantom::_mainWindow.pollEvent(event))
@@ -41,4 +42,6 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
 			}
 		}
 	}
+	*/
+
 }

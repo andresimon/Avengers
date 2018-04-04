@@ -32,12 +32,16 @@
     <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\MenuManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Phantom.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\PhysicsManager.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\Rigidbody2DComponent.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\ScreenManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SplashScreen2.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\SpriteRender.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\SpriteRenderComponent.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SystemRequirements.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\TitleScreen.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\TransformComponent.cpp" />
+    <ClCompile Include="..\Application.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\SplashScreen.cpp" />
   </ItemGroup>
@@ -45,6 +49,7 @@
     <ClInclude Include="..\..\Phatom-Engine\Animation.h" />
     <ClInclude Include="..\..\Phatom-Engine\BaseComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\BaseMessage.h" />
+    <ClInclude Include="..\..\Phatom-Engine\ComponentTypes.h" />
     <ClInclude Include="..\..\Phatom-Engine\FadeAnimation.h" />
     <ClInclude Include="..\..\Phatom-Engine\FileManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\GameObject.h" />
@@ -55,13 +60,17 @@
     <ClInclude Include="..\..\Phatom-Engine\Matrices.h" />
     <ClInclude Include="..\..\Phatom-Engine\MenuManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\Phantom.h" />
+    <ClInclude Include="..\..\Phatom-Engine\PhysicsManager.h" />
+    <ClInclude Include="..\..\Phatom-Engine\Rigidbody2DComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h" />
     <ClInclude Include="..\..\Phatom-Engine\ScreenManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\SplashScreen2.h" />
-    <ClInclude Include="..\..\Phatom-Engine\SpriteRender.h" />
+    <ClInclude Include="..\..\Phatom-Engine\SpriteRenderComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\SystemRequirements.h" />
     <ClInclude Include="..\..\Phatom-Engine\TitleScreen.h" />
+    <ClInclude Include="..\..\Phatom-Engine\TransformComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\Vectors.h" />
+    <ClInclude Include="..\Application.h" />
     <ClInclude Include="..\SplashScreen.h" />
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ Animation::~Animation()
 void Animation::LoadContent(std::string inText, sf::Image& image, sf::Vector2f pos)
 {
 	this->preText = inText;
-	std::cout << "Loading text " << inText << std::endl;
+	//std::cout << "Loading text " << inText << std::endl;
 	this->image = image;
 	this->pos = pos;
 

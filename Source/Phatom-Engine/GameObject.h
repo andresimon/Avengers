@@ -1,10 +1,10 @@
 #pragma once
 
 #include <vector>
+#include <map>
 
 #include "Matrices.h" 
 
-#include "BaseMessage.h"
 #include "BaseComponent.h"
 
 class GameObject 
@@ -16,8 +16,7 @@ class GameObject
 		int GetObjectID() const { return m_UniqueID; }
 
 		void AddComponent(BaseComponent* component);
-
-		bool SendMessage(BaseMessage* msg);
+		void addComponent(ComponentTypes type, std::shared_ptr<BaseComponent> compPtr);
 
 		void SetParent(GameObject& parent) { m_Parent = &parent; }
 		void AddChild(GameObject* child);
@@ -31,19 +30,24 @@ class GameObject
 		Matrix4 GetTransform() { return transform; }
 		Matrix4 GetWorldTransform() { return worldTransform; }
 
+		std::shared_ptr<BaseComponent> GetComponent(ComponentTypes type);
+
 	protected:
 		Matrix4 worldTransform;
 		Matrix4 transform;
 
+		std::vector<BaseComponent*> m_Components;
+
+		std::map<ComponentTypes, std::shared_ptr<BaseComponent>> components;
+
 	private: 
-		bool PassMessageToComponents(BaseMessage* msg);
 
 		int m_UniqueID;
 
 		GameObject* m_Parent;
 		std::vector<GameObject*> m_Children;
 
-		std::vector<BaseComponent*> m_Components;
+		
 
 public: // Members
 	//Transform transform;    //local transform

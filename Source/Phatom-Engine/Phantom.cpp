@@ -1,10 +1,15 @@
 #include "Phantom.h"
 
+#include "ScreenManager.h"
+
+#include "../Avengers/Application.h"
+
 Phantom::GameState Phantom::_gameState;
 GameObjectManager Phantom::_gameObjectManager;
+PhysicsManager Phantom::_physicsManager;
 sf::Clock Phantom::clock;
-sf::RenderWindow Phantom::_mainWindow;
 
+/*
 void Phantom::Initialize(LPCTSTR gameTitle, float screenWidth, float screenHeight)
 {
 	Phantom::InitGraphics(gameTitle, screenWidth, screenHeight);
@@ -14,6 +19,24 @@ void Phantom::Initialize(LPCTSTR gameTitle, float screenWidth, float screenHeigh
 
 	if ( !SystemRequirements::CheckResources(gameTitle) )
 		exit;
+
+	_gameState = Initialized;
+
+	return;
+}
+*/
+
+void Phantom::Initialize()
+{
+	ScreenSize size = Application::GetInstance().size;
+	LPCTSTR gameTitle = Application::GetInstance().name.c_str();
+	Phantom::InitGraphics(gameTitle, size.width, size.height);
+
+	ScreenManager::GetInstance().Initialize();
+	ScreenManager::GetInstance().LoadContent();
+
+	//if (!SystemRequirements::CheckResources(gameTitle))
+		//exit;
 
 	_gameState = Initialized;
 
@@ -39,16 +62,26 @@ void Phantom::Start(LPCTSTR gameTitle, float ScreenWidth, float ScreenHeight)
 	{
 		GameLoop(ScreenWidth, ScreenHeight);
 	}
-	_mainWindow.close();
+	//_mainWindow.close();
+	Application::_mainWindow.close();
 
 }
+
+
 
 void Phantom::InitGraphics(LPCTSTR gameTitle, float width, float height)
 {
 	if (_gameState != Uninitialized)
 		return;
 
-	_mainWindow.create(sf::VideoMode(width, height, 32), gameTitle);
+	sf::RenderWindow _mainWindow;
+	ScreenSize size = Application::size;
+
+	//_mainWindow.create(sf::VideoMode(size.width, size.height, 32), Application::GetName());
+	Application::_mainWindow.create(sf::VideoMode(size.width, size.height, 32), Application::name);
+	//_mainWindow.create(sf::VideoMode(width, height, 32), gameTitle);
+
+
 }
 
 bool Phantom::IsExiting()
@@ -66,7 +99,8 @@ void Phantom::GameLoop(float ScreenWidth, float ScreenHeight)
 
 	sf::Event event;
 
-	while (_mainWindow.pollEvent(event))
+	while (Application::_mainWindow.pollEvent(event))
+		//while (_mainWindow.pollEvent(event))
 	{
 		if (event.type == sf::Event::EventType::Closed )
 	//		(event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
@@ -81,23 +115,24 @@ void Phantom::GameLoop(float ScreenWidth, float ScreenHeight)
 
 	double deltaTime = clock.restart().asSeconds();
 
-	_mainWindow.clear();
+	Application::_mainWindow.clear();
 
 	// update all systems
 	_gameObjectManager.Update(deltaTime); // change to tick later
 
 								  // late update all systems
-	_gameObjectManager.LateUpdate(deltaTime); // change to tick later
+	//_gameObjectManager.LateUpdate(deltaTime); // change to tick later
+	_physicsManager.Update(deltaTime);
 
 	ScreenManager::GetInstance().Update(deltaTime);
 
 	sf::RectangleShape fade(sf::Vector2f(ScreenWidth, ScreenHeight));
-	fade.setFillColor(sf::Color(0, 0, 0, 255 * ScreenManager::GetInstance().GetAlpha()));
+//	fade.setFillColor(sf::Color(0, 0, 0, 255 * ScreenManager::GetInstance().GetAlpha()));
 
-	ScreenManager::GetInstance().Draw(_mainWindow);
-	_mainWindow.draw(fade);
+	ScreenManager::GetInstance().Draw(Application::GetInstance()._mainWindow);
+	//Application::_mainWindow.draw(fade);
 
-	_mainWindow.display();
+	Application::GetInstance()._mainWindow.display();
 
 }
 

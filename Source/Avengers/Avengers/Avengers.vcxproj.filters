@@ -84,7 +84,19 @@
     <ClCompile Include="..\..\Phatom-Engine\BaseMessage.cpp">
       <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Phatom-Engine\SpriteRender.cpp">
+    <ClCompile Include="..\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\SpriteRenderComponent.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\TransformComponent.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\Rigidbody2DComponent.cpp">
+      <Filter>Source Files\Phantom-Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Phatom-Engine\PhysicsManager.cpp">
       <Filter>Source Files\Phantom-Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,7 +161,22 @@
     <ClInclude Include="..\..\Phatom-Engine\BaseMessage.h">
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Phatom-Engine\SpriteRender.h">
+    <ClInclude Include="..\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\SpriteRenderComponent.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\TransformComponent.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\ComponentTypes.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\Rigidbody2DComponent.h">
+      <Filter>Header Files\Phantom-Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Phatom-Engine\PhysicsManager.h">
       <Filter>Header Files\Phantom-Engine</Filter>
     </ClInclude>
   </ItemGroup>

@@ -35,6 +35,13 @@ void GameObjectManager::LateUpdate(float msec) {
 	}
 }
 
+/*
+GameObject * GameObjectManager::GetObjectByID(int ID)
+{
+	return m_Objects[ID];
+}
+*/
+
 GameObject* GameObjectManager::CreateObject()
 {
 	GameObject* newObj = new GameObject(nextObjectID++);
@@ -43,6 +50,7 @@ GameObject* GameObjectManager::CreateObject()
 	return newObj;
 }
 
+/*
 // Returns true if the object or any components handled the message
 bool GameObjectManager::SendMessage(BaseMessage* msg) {
 	// We look for the object in the scene by its ID
@@ -57,3 +65,4 @@ bool GameObjectManager::SendMessage(BaseMessage* msg) {
 	return false;
 }
 
+*/

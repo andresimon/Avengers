@@ -72,7 +72,6 @@ void MenuManager::LoadContent(std::string menuID)
 {
 	null.loadFromFile("null.jpg");
 
-	//file.LoadContent("load/menu.txt", attr, content, menuID);
 	file.LoadContent("../../../Source/Phatom-Engine/load/menu.txt", attr, content, menuID);
 
 	itemNum = 0;
@@ -160,7 +159,7 @@ void MenuManager::UpdateEvent(InputManager input)
 			itemNum--;
 	}
 
-	std::cout << itemNum << std::endl;
+	//std::cout << itemNum << std::endl;
 }
 
 void MenuManager::Update(double deltaTime)

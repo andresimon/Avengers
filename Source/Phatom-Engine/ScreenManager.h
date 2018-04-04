@@ -13,9 +13,6 @@
 #include "FadeAnimation.h"
 #include "FileManager.h"
 
-//#define ScreenWidth 800
-//#define ScreenHeight 600
-
 class ScreenManager
 {
 	public:

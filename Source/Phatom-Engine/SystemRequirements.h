@@ -18,7 +18,7 @@
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/View.hpp"
 
-#include "Phantom.h"
+
 
 // Use to convert bytes to KB
 #define BYTE_TO_KBBYTE 1024

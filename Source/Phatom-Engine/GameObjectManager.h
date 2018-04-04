@@ -1,16 +1,14 @@
 #pragma once
 
-//#include <stdio.h>
 #include "GameObject.h"
+
 #include "iostream"
 #include <map>
-//#include <list>
 #include <iterator>
 
 class GameObjectManager
 {
 	public:
-		bool SendMessage(BaseMessage* msg);
 		GameObject* CreateObject();
 
 		void Update(float msec);

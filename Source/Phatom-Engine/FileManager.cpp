@@ -4,12 +4,10 @@
 
 FileManager::FileManager()
 {
-	//ctor
 }
 
 FileManager::~FileManager()
 {
-	//dtor
 }
 
 enum loadState { ATTRIBUTES, CONTENT };

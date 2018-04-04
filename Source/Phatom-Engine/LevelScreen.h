@@ -1,11 +1,17 @@
 #pragma once
 
+#include <memory>
+
 #include <SFML/Graphics.hpp>
 
-//#include "Phantom.h"
-#include "ScreenManager.h"
+
+//#include "ScreenManager.h"
+
 #include "GameScreen.h"
 #include "GameObject.h"
+
+class SpriteRenderComponent;
+
 class LevelScreen : public GameScreen
 {
 	public:
@@ -18,6 +24,8 @@ class LevelScreen : public GameScreen
 		void Update(double deltaTime);
 		void Draw(sf::RenderWindow& window);
 
+		GameObject* background;
+		GameObject* ground;
 		GameObject* player;
 
 	protected:

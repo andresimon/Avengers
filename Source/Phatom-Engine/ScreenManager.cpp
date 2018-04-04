@@ -22,7 +22,8 @@ ScreenManager &ScreenManager::GetInstance()
 
 void ScreenManager::Initialize()
 {
-	currentScreen = new SplashScreen2();
+	currentScreen = new TitleScreen();
+	//currentScreen = new SplashScreen2();
 	
 	transitiond = false;
 	//file.loadContent("load/splash.txt", attributes, contents);

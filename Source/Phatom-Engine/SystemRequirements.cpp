@@ -1,5 +1,9 @@
 #include "SystemRequirements.h"
 
+#include "Phantom.h"
+
+#include "../Avengers/Application.h"
+
 bool SystemRequirements::IsOnlyInstance(const HANDLE handle, const LPCTSTR gameTitle)
 {
 	bool alreadyExist;
@@ -56,8 +60,8 @@ bool SystemRequirements::CheckStorage(const DWORDLONG diskSpaceNeeded)
 		text.setString(textSS.str());
 		text.setCharacterSize(15);
 		text.setPosition(0, 0);
-		Phantom::_mainWindow.draw(text);
-		Phantom::_mainWindow.display();
+		Application::GetInstance()._mainWindow.draw(text);
+		Application::GetInstance()._mainWindow.display();
 	}
 
 	return enoughSpace;
@@ -128,8 +132,8 @@ bool SystemRequirements::CheckMemory(const DWORDLONG physicalRAMNeeded, const DW
 		text.setString(textSS.str());
 		text.setCharacterSize(15);
 		text.setPosition(0, 0);
-		Phantom::_mainWindow.draw(text);
-		Phantom::_mainWindow.display();
+		Application::GetInstance()._mainWindow.draw(text);
+		Application::GetInstance()._mainWindow.display();
 	}
 
 	return enoughMem;
