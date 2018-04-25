@@ -35,7 +35,6 @@ void SpriteRenderComponent::LoadContent()
 	}
 
 	this->sprite.setTexture(this->texture);
-//	this->sprite.setTextureRect(this->rectShape);
 }
 
 void SpriteRenderComponent::SetPosition(sf::Vector2f newPos)
@@ -46,10 +45,11 @@ void SpriteRenderComponent::SetPosition(sf::Vector2f newPos)
 void SpriteRenderComponent::Update()
 {
 	std::shared_ptr<TransformComponent> transform =
-		std::dynamic_pointer_cast<TransformComponent>(m_Parent->GetComponent(TranformComponentType));
+		std::dynamic_pointer_cast<TransformComponent>(m_Owner->GetComponent(TransformComponentType));
 
 	if (transform != nullptr)
 	{
+		sf::Vector2f pos = transform->getPosition();
 		sprite.setPosition(transform->getPosition());
 	}
 	

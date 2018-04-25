@@ -21,34 +21,34 @@
   <ItemGroup>
     <ClCompile Include="..\..\Phatom-Engine\Animation.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\BaseComponent.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\BaseMessage.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\FadeAnimation.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\FileManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\GameObject.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\GameObjectManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\GameScreen.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\InputManager.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\LevelScreen.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Matrices.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\MenuManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Phantom.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\Rigidbody2DComponent.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\SceneGraph.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\SceneLoader.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\ScreenManager.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\SplashScreen2.cpp" />
+    <ClCompile Include="..\..\Phatom-Engine\ScriptComponent.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SpriteRenderComponent.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\SystemRequirements.cpp" />
-    <ClCompile Include="..\..\Phatom-Engine\TitleScreen.cpp" />
     <ClCompile Include="..\..\Phatom-Engine\TransformComponent.cpp" />
     <ClCompile Include="..\Application.cpp" />
+    <ClCompile Include="..\LevelScreen.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\MenuManager.cpp" />
+    <ClCompile Include="..\PlayerController.cpp" />
     <ClCompile Include="..\SplashScreen.cpp" />
+    <ClCompile Include="..\SplashScreen2.cpp" />
+    <ClCompile Include="..\TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Phatom-Engine\Animation.h" />
     <ClInclude Include="..\..\Phatom-Engine\BaseComponent.h" />
-    <ClInclude Include="..\..\Phatom-Engine\BaseMessage.h" />
     <ClInclude Include="..\..\Phatom-Engine\ComponentTypes.h" />
     <ClInclude Include="..\..\Phatom-Engine\FadeAnimation.h" />
     <ClInclude Include="..\..\Phatom-Engine\FileManager.h" />
@@ -62,16 +62,18 @@
     <ClInclude Include="..\..\Phatom-Engine\Phantom.h" />
     <ClInclude Include="..\..\Phatom-Engine\PhysicsManager.h" />
     <ClInclude Include="..\..\Phatom-Engine\Rigidbody2DComponent.h" />
-    <ClInclude Include="..\..\Phatom-Engine\SceneGraph.h" />
+    <ClInclude Include="..\..\Phatom-Engine\SceneLoader.h" />
     <ClInclude Include="..\..\Phatom-Engine\ScreenManager.h" />
-    <ClInclude Include="..\..\Phatom-Engine\SplashScreen2.h" />
+    <ClInclude Include="..\..\Phatom-Engine\ScriptComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\SpriteRenderComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\SystemRequirements.h" />
-    <ClInclude Include="..\..\Phatom-Engine\TitleScreen.h" />
     <ClInclude Include="..\..\Phatom-Engine\TransformComponent.h" />
     <ClInclude Include="..\..\Phatom-Engine\Vectors.h" />
     <ClInclude Include="..\Application.h" />
+    <ClInclude Include="..\PlayerController.h" />
     <ClInclude Include="..\SplashScreen.h" />
+    <ClInclude Include="..\SplashScreen2.h" />
+    <ClInclude Include="..\TitleScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\Assets\images\Avengers_Logo_00.png" />
@@ -140,10 +142,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Repositories\Avengers\Source\Phatom-Engine;C:\Repositories\Avengers\Source\Phatom-Engine;C:\Repositories\Avengers\Library\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Library\SFML-2.4.2\include;..\..\..\Library\RapidJSON\include;..\..\..\Source\Phatom-Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Repositories\Avengers\Library\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\Library\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -161,12 +163,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Repositories\Avengers\Source\Phatom-Engine;C:\Repositories\Avengers\Library\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Library\SFML-2.4.2\include;..\..\..\Library\RapidJSON\include;..\..\..\Source\Phatom-Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Repositories\Avengers\Library\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\Library\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-network.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

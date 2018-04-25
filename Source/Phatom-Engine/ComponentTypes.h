@@ -3,7 +3,8 @@
 enum ComponentTypes
 {
 	SpriteRenderComponentType,
-	TranformComponentType,
+	TransformComponentType,
 	Rigidbody2DComponentType,
+	ScriptComponentType,
 	BoxColliderComponentType
 };

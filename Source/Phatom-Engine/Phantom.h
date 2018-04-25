@@ -33,7 +33,7 @@ class Phantom
 	private:
 		static bool IsExiting();
 
-		static void GameLoop(float ScreenWidth, float ScreenHeight);
+		static void GameLoop(float ScreenWidth, float ScreenHeight, float deltaTime);
 
 		static sf::Clock clock;
 

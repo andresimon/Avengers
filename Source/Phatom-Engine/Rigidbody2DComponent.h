@@ -22,27 +22,29 @@ class Rigidbody2DComponent : public BaseComponent
 		sf::Vector2f GetCurrentVelocity();
 		void SetCurrentVelocity(sf::Vector2f currentVelocity);
 
+		inline float GetMass() { return this->mass; }
+		inline void SetMass(float value) { this->mass = value; }
+		inline float GetBounciness() { return this->bounciness; }
+		inline void SetBounciness(float value) { this->bounciness = value;  }
 		AABB GetAABB();
+		void SetAABB();
+
 		void Integrate(float dT);
 		void AddForce(sf::Vector2f force);
 		bool IsGrounded();
 		
-
-	///////////////
+		void Awake();
 		void Update();
 
 	private:
-		sf::Texture texture;
 		sf::Sprite sprite;
 		sf::IntRect rectShape;
 
-		std::string fileName;
-
 		void LoadContent();
 
-		float mass = 1.f;				// Mass of the RigidBody
-		float bounciness = 1.f;			// The bounciness factor (value between 0 and 1, 0 being no bounce, and 1 being super bouncy!)
-		bool obeysGravity = true;
+		float mass;						// Mass of the RigidBody
+		float bounciness;				// The bounciness factor (value between 0 and 1, 0 being no bounce, and 1 being super bouncy!)
+		bool obeysGravity;
 		sf::Vector2f gravity;			// The gravity vector applied to this body
 
 		sf::Vector2f maxVelocity;		// The maximum allowed velocity for this object
@@ -54,8 +56,6 @@ class Rigidbody2DComponent : public BaseComponent
 		sf::Vector2f totalForces;
 
 		AABB aabb;
-
-		//PhysicsEngine engine;
 
 };
 
@@ -74,35 +74,10 @@ public class PhysicsRBody : MonoBehaviour
 		totalForces = Vector2.zero;
 	}
 
-	public bool IsGrounded()
-	{
-		grounded = engine.IsGrounded(this);
-		return grounded;
-	}
-
 	
 	void SetAABB()
 	{
-		Bounds bound = new Bounds(new Vector2(0, 0), new Vector2(1, 1));
-		Renderer renderer = GetComponent<Renderer>();
-
-		if (renderer)
-		{
-			bound = renderer.bounds;
-		}
-
-		aabb.bLeft = new Vector2(bound.center.x - bound.extents.x, bound.center.y - bound.extents.y);
-		aabb.tRight = new Vector2(bound.center.x + bound.extents.x, bound.center.y + bound.extents.y);
+		
 	}
 
-	void Start()
-	{
-		SetAABB();
-		engine = GameObject.FindWithTag("PhysicsEngine").GetComponent<PhysicsEngine>();
-
-		engine.AddRigidBody(this);
-	}
-
-	
-	
 */

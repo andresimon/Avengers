@@ -8,6 +8,9 @@
 
 #include "GameObjectManager.h"
 
+#include <SFML/System/Time.hpp>
+
+
 // Initialize our static unique objectID generator
 int GameObjectManager::nextObjectID = 0;
 
@@ -23,26 +26,35 @@ void GameObjectManager::Start() {
 	}
 }
 
-void GameObjectManager::Update(float msec) {
+GameObject * GameObjectManager::GetObjectByName(std::string name)
+{
+	for (std::map<int, GameObject*>::iterator it = m_Objects.begin(); it != m_Objects.end(); ++it)
+	{
+		GameObject* go = it->second;
+		if ( go->GetName() == name )
+		{
+			return go;
+		}
+	}
+	return nullptr;
+}
+
+void GameObjectManager::Update(float msec) 
+{
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
 		(i->second)->Update(msec);
 	}
 }
 
+/*
 void GameObjectManager::LateUpdate(float msec) {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
 		(i->second)->LateUpdate(msec);
 	}
 }
-
-/*
-GameObject * GameObjectManager::GetObjectByID(int ID)
-{
-	return m_Objects[ID];
-}
 */
 
-GameObject* GameObjectManager::CreateObject()
+GameObject * GameObjectManager::CreateObject()
 {
 	GameObject* newObj = new GameObject(nextObjectID++);
 	m_Objects[newObj->GetObjectID()] = newObj;
@@ -50,19 +62,11 @@ GameObject* GameObjectManager::CreateObject()
 	return newObj;
 }
 
-/*
-// Returns true if the object or any components handled the message
-bool GameObjectManager::SendMessage(BaseMessage* msg) {
-	// We look for the object in the scene by its ID
-	std::map<int, GameObject*>::iterator objIt = m_Objects.find(msg->m_destObjectID);
-	if (objIt != m_Objects.end())
-	{
-		// Object was found, so send it the message
-		return objIt->second->SendMessage(msg);
-	}
-
-	// Object with the specified ID wasn't found
-	return false;
+GameObject * GameObjectManager::CreateObject(std::string name)
+{
+	GameObject * go = CreateObject();
+	go->SetName(name);
+	
+	return go;
 }
 
-*/

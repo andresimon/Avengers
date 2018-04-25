@@ -22,8 +22,8 @@ ScreenManager &ScreenManager::GetInstance()
 
 void ScreenManager::Initialize()
 {
-	currentScreen = new TitleScreen();
-	//currentScreen = new SplashScreen2();
+	//currentScreen = new LevelScreen();
+	currentScreen = new SplashScreen2();
 	
 	transitiond = false;
 	//file.loadContent("load/splash.txt", attributes, contents);
@@ -58,7 +58,7 @@ void ScreenManager::UpdateEvent(sf::Event event)
 	currentScreen->UpdateEvent(event);
 }
 
-void ScreenManager::Update(double deltaTime)
+void ScreenManager::Update(float deltaTime)
 {
 	if (!transitiond)
 		currentScreen->Update(deltaTime);

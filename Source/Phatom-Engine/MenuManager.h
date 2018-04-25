@@ -4,10 +4,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Animation.h"
-#include "FadeAnimation.h"
-#include "FileManager.h"
-#include "InputManager.h"
+#include "../Phatom-Engine/Animation.h"
+#include "../Phatom-Engine/FadeAnimation.h"
+#include "../Phatom-Engine/FileManager.h"
+#include "../Phatom-Engine/InputManager.h"
 
 class TitleScreen;
 

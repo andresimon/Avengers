@@ -6,9 +6,9 @@
 #include "ScreenManager.h"
 #include "GameScreen.h"
 
-#include "SplashScreen2.h"
-#include "TitleScreen.h"
-#include "LevelScreen.h"
+#include "../Avengers/SplashScreen2.h"
+//#include "../Avengers/TitleScreen.h"
+#include "../Avengers/LevelScreen.h"
 
 #include "FadeAnimation.h"
 #include "FileManager.h"
@@ -24,9 +24,8 @@ class ScreenManager
 		void LoadContent();
 		void UnloadContent();
 
-		//void Update(sf::RenderWindow &window, sf::Event event);
 		void UpdateEvent(sf::Event event);
-		void Update(double deltaTime);
+		void Update(float deltaTime);
 
 		void Draw(sf::RenderWindow &window);
 
@@ -40,8 +39,6 @@ class ScreenManager
 		ScreenManager();
 		ScreenManager(ScreenManager& const);
 		void operator=(ScreenManager& const);
-
-		//std::string text;
 
 		void Transition(double deltaTime);
 

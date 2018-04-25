@@ -1,17 +1,6 @@
 #pragma once
 
-//
-//  BaseComponent.hpp
-//  Clarity Engine
-//
-//  Created by Galal Hassan on 2018-02-12.
-//  Copyright © 2018 The Pixel Crushers. All rights reserved.
-//
-
-//#include <stdio.h>
-#include <memory>
-
-#include "BaseMessage.h"
+//#include <memory>
 
 #include "ComponentTypes.h"
 
@@ -23,15 +12,15 @@ class BaseComponent
 		virtual void Awake() {}
 		virtual void Start() {}
 		virtual void Update() {}
+		virtual void Update(float deltaTime) {}
 		virtual void LateUpdate() {}
 
-		inline void setParent(GameObject* parent) { this->m_Parent = parent; }
+		inline GameObject* GetOwner() { return this->m_Owner; }
+		inline void SetOwner(GameObject* owner) { this->m_Owner = owner; }
 
-	//	inline void SetParent(GameObject* parent) { m_Parent = parent; }
-	
 	protected:
-		int parentID;
-		GameObject* m_Parent;
+		//int parentID;
+		GameObject* m_Owner;
 
 		
 };

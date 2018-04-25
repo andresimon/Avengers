@@ -1,0 +1,74 @@
+{
+	"Background": {
+		"Transform": {
+			"Position": {
+				"x": 0.0,
+				"y": 0.0
+			}
+		},
+		"Sprite": {
+			"Image": "images/Walkway_00.png",
+			"TextureRect": {
+				"left": 0.0,
+				"top": 0.0,
+				"width": 951.0,
+				"height": 151.0
+			}
+		}
+	},
+	"Ground": {
+		"Transform": {
+			"Position": {
+				"x": 0.0,
+				"y": 500.0
+			}
+		},
+		"Sprite": {
+			"Image": "images/Street_01.png"
+			},
+		"Rigidbody": {
+			"Mass": 0.0,
+			"Bounciness": 0.1,
+			"Use_Gravity": false
+		}
+	},
+	"Shield": {
+		"Transform": {
+			"Position": {
+				"x": 250.0,
+				"y": 100.0
+			}
+		},
+		"Sprite": {
+			"Image": "images/Shield_00.png"
+		},
+		"Rigidbody": {
+			"Mass": 1,
+			"Bounciness": 1.0,
+			"Use_Gravity": false
+		}
+	},
+	"Player": {
+		"Transform": {
+			"Position": {
+				"x": 500.0,
+				"y": 50.0
+			}
+		},
+		"Sprite": {
+			"Image": "images/CapAmerica_Idle_00.png",
+			"TextureRect": {
+				"left": 0.0,
+				"top": 0.0,
+				"width": 84.0,
+				"height": 82.0
+			}
+		},
+		"Rigidbody": {
+			"Mass": 0.5,
+			"Bounciness": 0.0,
+			"Use_Gravity": true
+		}
+	}
+
+}

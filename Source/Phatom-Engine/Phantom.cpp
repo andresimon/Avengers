@@ -32,8 +32,8 @@ void Phantom::Initialize()
 	LPCTSTR gameTitle = Application::GetInstance().name.c_str();
 	Phantom::InitGraphics(gameTitle, size.width, size.height);
 
-	ScreenManager::GetInstance().Initialize();
-	ScreenManager::GetInstance().LoadContent();
+	//ScreenManager::GetInstance().Initialize();
+	//ScreenManager::GetInstance().LoadContent();
 
 	//if (!SystemRequirements::CheckResources(gameTitle))
 		//exit;
@@ -56,18 +56,19 @@ void Phantom::Start(LPCTSTR gameTitle, float ScreenWidth, float ScreenHeight)
 	ScreenManager::GetInstance().Initialize();
 	ScreenManager::GetInstance().LoadContent();
 
-	_gameState = Phantom::Playing;
+	_gameState = Phantom::Initialized;
+
+	_gameObjectManager.Awake();
+	_gameObjectManager.Start();
 
 	while (_gameState != Phantom::Exiting)
 	{
-		GameLoop(ScreenWidth, ScreenHeight);
+		float deltaTime = clock.restart().asSeconds();
+		GameLoop(ScreenWidth, ScreenHeight, deltaTime);
 	}
-	//_mainWindow.close();
+
 	Application::_mainWindow.close();
-
 }
-
-
 
 void Phantom::InitGraphics(LPCTSTR gameTitle, float width, float height)
 {
@@ -77,11 +78,7 @@ void Phantom::InitGraphics(LPCTSTR gameTitle, float width, float height)
 	sf::RenderWindow _mainWindow;
 	ScreenSize size = Application::size;
 
-	//_mainWindow.create(sf::VideoMode(size.width, size.height, 32), Application::GetName());
 	Application::_mainWindow.create(sf::VideoMode(size.width, size.height, 32), Application::name);
-	//_mainWindow.create(sf::VideoMode(width, height, 32), gameTitle);
-
-
 }
 
 bool Phantom::IsExiting()
@@ -89,18 +86,11 @@ bool Phantom::IsExiting()
 	return false;// isExiting;
 }
 
-void Phantom::GameLoop(float ScreenWidth, float ScreenHeight)
+void Phantom::GameLoop(float ScreenWidth, float ScreenHeight, float deltaTime)
 {
-	//SceneGraph* level1 = new SceneGraph();
-
-	//GameObject* player = new GameObject();
-
-	//level1->AddObject(player);
-
 	sf::Event event;
 
 	while (Application::_mainWindow.pollEvent(event))
-		//while (_mainWindow.pollEvent(event))
 	{
 		if (event.type == sf::Event::EventType::Closed )
 	//		(event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
@@ -111,19 +101,23 @@ void Phantom::GameLoop(float ScreenWidth, float ScreenHeight)
 		}
 
 		ScreenManager::GetInstance().UpdateEvent(event);
-	}
 
-	double deltaTime = clock.restart().asSeconds();
+		//_gameObjectManager.Update(deltaTime);
+
+	}
 
 	Application::_mainWindow.clear();
 
-	// update all systems
-	_gameObjectManager.Update(deltaTime); // change to tick later
+	if (_gameState == Playing)
+	{
 
-								  // late update all systems
-	//_gameObjectManager.LateUpdate(deltaTime); // change to tick later
-	_physicsManager.Update(deltaTime);
+		// update all systems
+		_gameObjectManager.Update(deltaTime); // change to tick later
 
+									  // late update all systems
+		//_gameObjectManager.LateUpdate(deltaTime); // change to tick later
+		_physicsManager.Update(deltaTime);
+	}
 	ScreenManager::GetInstance().Update(deltaTime);
 
 	sf::RectangleShape fade(sf::Vector2f(ScreenWidth, ScreenHeight));

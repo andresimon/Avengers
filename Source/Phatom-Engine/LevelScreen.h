@@ -4,11 +4,10 @@
 
 #include <SFML/Graphics.hpp>
 
-
 //#include "ScreenManager.h"
 
-#include "GameScreen.h"
-#include "GameObject.h"
+#include "../Phatom-Engine/GameScreen.h"
+#include "../Phatom-Engine/GameObject.h"
 
 class SpriteRenderComponent;
 
@@ -27,6 +26,8 @@ class LevelScreen : public GameScreen
 		GameObject* background;
 		GameObject* ground;
 		GameObject* player;
+		GameObject* player2;
+		GameObject* shield;
 
 	protected:
 

@@ -1,8 +1,8 @@
 #include <Windows.h>
-
 #include "tchar.h"
 
-#include "Phantom.h"
+#include "../Phatom-Engine/Phantom.h"
+
 #include "Application.h"
 
 static const LPCTSTR gameTitle = "Avengers";
